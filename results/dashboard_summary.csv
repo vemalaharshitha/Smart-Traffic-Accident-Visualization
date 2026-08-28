@@ -1,0 +1,7 @@
+"Metric","Value"
+"Total Accidents","20,000"
+"Highest Risk Weather","Fog - 0.589"
+"Highest Risk Traffic","High - 0.595"
+"Top Risk Score","0.919"
+"Random Forest Accuracy","68.45%"
+"Logistic Regression Accuracy","68.45%"

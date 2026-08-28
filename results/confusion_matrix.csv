@@ -1,0 +1,10 @@
+"Actual","Predicted","Freq"
+"minor","minor",2108
+"major","minor",1187
+"fatal","minor",7
+"minor","major",67
+"major","major",44
+"fatal","major",0
+"minor","fatal",1
+"major","fatal",0
+"fatal","fatal",586

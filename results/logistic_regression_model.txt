@@ -1,0 +1,46 @@
+Call:
+multinom(formula = accident_severity ~ ., data = train_data, 
+    trace = FALSE)
+
+Coefficients:
+      (Intercept)         hour  is_weekend road_typerural road_typeurban      lanes
+major     6.48737  0.001859611  0.02320242    0.005026152   -0.007755233 0.02146225
+fatal  -147.34859 -0.022405343 -0.79916715    1.901225493    2.184755533 0.30305229
+      traffic_signal weatherfog weatherrain visibilitylow visibilitymedium
+major    -0.03987543   2.262569     2.24976      4.079916        0.4324129
+fatal     0.38156701 -38.596407   -36.11004    -67.532186       -7.1742576
+      temperature traffic_densitylow traffic_densitymedium causedrunk driving
+major 0.003244608          -3.578158             -3.553036        -0.03788494
+fatal 0.232370778          53.809287             56.200190         1.06218742
+      causeoverspeeding causepoor road causeweather vehicles_involved   casualties
+major       -0.03380999    -0.05396605 -0.009553353      -0.006589826 -0.004371476
+fatal        1.15752772     1.13659441  2.787081578       1.121891141 -1.296145943
+      is_peak_hour festivalEid festivalHoli festivalNew Year festivalNone
+major     2.761873  -0.8564194    0.4112297        0.0783385    -1.804069
+fatal   -47.924132   4.0832780   -1.6381478      -78.3521447    24.162107
+      risk_score
+major  -18.18459
+fatal  297.89221
+
+Std. Errors:
+      (Intercept)        hour is_weekend road_typerural road_typeurban      lanes
+major  0.38711756 0.002696003 0.03974014    0.044141378     0.04414278 0.01050928
+fatal  0.07789525 1.207779854 0.04491547    0.007597504     0.04844503 0.33536529
+      traffic_signal  weatherfog weatherrain visibilitylow visibilitymedium
+major     0.03600424 0.042925861  0.03671908    0.04810006       0.04400812
+fatal     0.04312533 0.003455722  0.04205038    0.01423559       0.03127051
+      temperature traffic_densitylow traffic_densitymedium causedrunk driving
+major 0.002416665       5.436287e-02           0.054196752         0.05684387
+fatal 2.512477635       6.994848e-05           0.000786268         0.04376808
+      causeoverspeeding causepoor road causeweather vehicles_involved casualties
+major        0.05656863    0.056833086   0.05643306        0.01489187   0.015185
+fatal        0.00325741    0.004387063   0.01955284        0.32097395   0.043434
+      is_peak_hour festivalEid festivalHoli festivalNew Year festivalNone
+major  0.051661759  0.66167570 0.6283509991     7.658232e-01   0.42253746
+fatal  0.003946313  0.05315224 0.0004109438     2.600091e-38   0.02388341
+      risk_score
+major 0.16587857
+fatal 0.03909585
+
+Residual Deviance: 17593.15 
+AIC: 17693.15 

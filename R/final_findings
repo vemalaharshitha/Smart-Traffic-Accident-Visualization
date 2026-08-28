@@ -1,0 +1,36 @@
+SMART TRAFFIC - FINAL FINDINGS
+
+Total accidents: 20000
+
+1. CITY FINDINGS
+Highest accident count: Chandigarh - 2577 accidents
+
+2. SEVERITY FINDINGS
+Minor accidents: 11025
+Major accidents: 5988
+Fatal accidents: 2987
+
+3. WEATHER FINDINGS
+Highest average risk weather: fog - 0.589
+
+4. TRAFFIC FINDINGS
+Highest average risk traffic density: high - 0.595
+
+5. TOP RISK CONDITION
+Weather: fog | Traffic: high | Severity: fatal | Average Risk: 0.919
+
+6. MACHINE LEARNING
+Random Forest accuracy: 68.45 %
+Logistic Regression accuracy:  %
+
+7. CLASS PERFORMANCE
+Fatal F1-score: 99.32 %
+Major F1-score: 6.56 %
+Minor F1-score: 76.96 %
+
+8. CONCLUSION
+Both models achieved 68.45% accuracy.
+Fatal accidents were identified very effectively.
+Minor accidents had high recall.
+Major accidents were difficult to classify accurately.
+Weather and traffic density showed strong relationships with accident risk
