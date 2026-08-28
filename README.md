@@ -1,6 +1,3 @@
-Yes bro 😭 — here is the **final clean `README.md`**, with all the important project topics included and no unnecessary long explanations.
-
-````markdown
 # 🚦 Smart Accident Visualization
 
 ### Road Accident Analysis, Risk Assessment, Visualization & Machine Learning
