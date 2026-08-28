@@ -97,7 +97,7 @@ Smart Traffic Dashboard
        ↓
 HTML + PDF Reports
 
-# 🔍 Main Analysis
+## 🔍 Main Analysis
 
 The Smart Accident Visualization project performs a complete analysis of road accident data using multiple dimensions.
 
