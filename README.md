@@ -296,7 +296,7 @@ Logistic Regression was used as a baseline classification model.
 
 ---
 
-# 🧠 Main Analysis Findings
+## 🧠 Main Analysis Findings
 
 | Analysis | Main Finding |
 |---|---|
