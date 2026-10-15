@@ -1,0 +1,37 @@
+flowchart TD
+    subgraph Entities["External Entities"]
+        CAM["Traffic Surveillance CCTV"]
+        POLICE["Municipal Incident Records Registry"]
+        USER["Traffic Control Officer / Planner"]
+    end
+
+    subgraph DFD_L1["DFD Level 1 Processes"]
+        P1["1.0 Process Video Frames & Track Vehicles"]
+        P2["2.0 Validate & Clean Historical Crash Data"]
+        P3["3.0 Train & Evaluate Severity ML Models"]
+        P4["4.0 Compute Real-Time Congestion & Risk Scores"]
+        P5["5.0 Render Interactive Geospatial Map & Telemetry"]
+        P6["6.0 Execute What-If Simulator & Signal Timing"]
+    end
+
+    subgraph Stores["Data Stores"]
+        D1[("D1: Historical Incident Database")]
+        D2[("D2: Preprocessed Analytics Store")]
+        D3[("D3: Machine Learning Model Registry")]
+        D4[("D4: Real-Time Video Telemetry Logs")]
+    end
+
+    CAM -->|Raw Video Frames| P1
+    POLICE -->|Raw Crash Logs| P2
+    P2 -->|Cleaned Factorized Records| D1
+    D1 -->|Training Samples| P3
+    P3 -->|Evaluation Metrics & Importance| D3
+    P1 -->|Per-Frame Vehicle Detections| P4
+    P4 -->|Frame Telemetry & Congestion| D4
+    
+    D1 & D4 --> P5
+    D3 & D1 --> P6
+    
+    P5 -->|Interactive Telemetry & Hotspot Maps| USER
+    P6 -->|Signal Adjustments & Risk Predictions| USER
+    USER -->|Filter Queries & Simulation Parameters| P5 & P6

@@ -1,0 +1,45 @@
+graph TB
+    subgraph DataSources["Data Sources & Acquisition Layer"]
+        DS1["Historical Accident Records<br/>(20,000 Records, 24 Attributes,<br/>8 Metropolitan Hubs)"]
+        DS2["Traffic Surveillance Video Stream<br/>(Traffic_Video.mp4, 1080p, 59.94 FPS)"]
+    end
+
+    subgraph Ingestion["Data Ingestion & Preprocessing Pipeline"]
+        PR1["Data Cleaning & Encoding<br/>(Date/Time ISO, Factor Levels,<br/>Constraint Validation)"]
+        PR2["Feature Engineering Engine<br/>(hour_group, is_weekend, is_peak_hour,<br/>composite risk_score, casualty_level)"]
+        PR3["Video Frame Ingestion<br/>(OpenCV VideoCapture, 640x640 Resize,<br/>Frame Normalization)"]
+    end
+
+    subgraph Perception["AI Perception & Video Intelligence"]
+        YOLO["YOLO11n Neural Detector<br/>(Ultralytics v8.4, Conf>=0.20,<br/>COCO Classes: Car, Bike, Bus, Truck)"]
+        BYTE["ByteTrack Multi-Object Tracker<br/>(Kalman Filter + Hungarian Association,<br/>Persistent Tracklet IDs)"]
+        COUNT["Flow Density & Heuristic Risk Estimator<br/>(Frame Vehicle Aggregation,<br/>Congestion State: High/Med/Low,<br/>Risk = min(total/20.0, 1.0))"]
+    end
+
+    subgraph Modeling["Statistical & Machine Learning Engine"]
+        RF["Random Forest Severity Classifier<br/>(300 Trees, mtry=3, Gini Splitting,<br/>OOB Error: 31.22%)"]
+        MLR["Multinomial Logistic Regression<br/>(nnet::multinom, BFGS Solver,<br/>Parametric Baseline)"]
+        HOT["Spatial Grid Density Analyzer<br/>(GIS Coordinate Clustering,<br/>Accident Hotspot Identification)"]
+    end
+
+    subgraph Dashboard["Unified Urban Mobility Platform (R Shiny)"]
+        UI1["Executive Overview Tab<br/>(Macro Incident KPIs & Telemetry)"]
+        UI2["Video Intelligence & Signal Optimizer<br/>(Live Telemetry & Adaptive Timing)"]
+        UI3["Geographic Accident Map<br/>(Leaflet OSM + Multi-Attribute Filtering)"]
+        UI4["Traffic Analytics Tab<br/>(Temporal, Environmental & Cause Matrices)"]
+        UI5["ML & Risk Intelligence Studio<br/>(What-If Simulator & Model Metrics)"]
+        UI6["Data Explorer & Export<br/>(Filterable Cyber-Table & CSV Streaming)"]
+    end
+
+    DS1 --> PR1 --> PR2
+    DS2 --> PR3 --> YOLO --> BYTE --> COUNT
+    PR2 --> RF
+    PR2 --> MLR
+    PR2 --> HOT
+    COUNT --> UI2
+    RF --> UI5
+    MLR --> UI5
+    HOT --> UI3
+    PR2 --> UI1
+    PR2 --> UI4
+    PR2 --> UI6

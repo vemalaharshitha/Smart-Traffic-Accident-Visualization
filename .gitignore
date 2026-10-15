@@ -1,0 +1,16 @@
+# R session artifacts and user preferences
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Python bytecode and caches
+__pycache__/
+*.pyc
+
+# Backup files and temporary dumps
+*_backup_*.R
+*backup_before*
+
+# Files exceeding GitHub 100MB file limit
+smart-traffic-2.0/outputs/smart_traffic_output_v2.mp4

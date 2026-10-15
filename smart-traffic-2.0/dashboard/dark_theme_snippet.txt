@@ -1,0 +1,16 @@
+
+ui <- tagList(
+  tags$head(tags$style(HTML('
+    body { background: #0b1120; color: #e5e7eb; }
+    .container-fluid { padding: 24px; }
+    .well { background: #141f32; color: #e5e7eb;
+            border: 1px solid #293951; border-radius: 12px; }
+    h1, h2, h3, h4 { color: #f8fafc; }
+    .table > tbody > tr > td { background: #141f32;
+            color: #e5e7eb; border-color: #293951; }
+    .table > thead > tr > th { background: #1e2b40;
+            color: #93c5fd; }
+  '))),
+  fluidPage(
+    titlePanel('SMART TRAFFIC 2.0 - CONTROL ROOM'),
+    

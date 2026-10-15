@@ -1,0 +1,15 @@
+Metric,Random Forest Classifier,Multinomial Logistic Regression,Delta / Winner
+Overall Test Accuracy,"68.45% (2,738 / 4,000)","68.45% (2,738 / 4,000)",Equivalent
+Out-of-Bag (OOB) Error,31.22%,"N/A (Residual Deviance: 17,593.15)",RF self-validated
+AIC (Akaike Information),N/A,"17,693.15",Parametric benchmark
+Fatal Class Precision,99.83%,99.83%,Equivalent
+Fatal Class Recall,98.82%,98.82%,Equivalent
+Fatal Class F1-Score,99.32%,99.32%,Equivalent
+Minor Class Precision,63.84%,63.84%,Equivalent
+Minor Class Recall,96.88%,96.88%,Equivalent
+Minor Class F1-Score,76.96%,76.96%,Equivalent
+Major Class Precision,39.64%,39.64%,Equivalent
+Major Class Recall,3.57%,3.57%,Equivalent
+Major Class F1-Score,6.56%,6.56%,Equivalent
+Macro Average F1-Score,60.95%,60.95%,Equivalent
+Weighted Average F1-Score,67.08%,67.08%,Equivalent

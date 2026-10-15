@@ -1,3 +1,5 @@
+library(readr)
+library(dplyr)
 accidents <- read_csv(
   "C:/Users/Harshitha/OneDrive/Documents/Smart Traffic/data/indian_roads_dataset.csv"
 )

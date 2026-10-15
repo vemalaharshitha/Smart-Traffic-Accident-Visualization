@@ -1,0 +1,25 @@
+flowchart TD
+    VF["Surveillance Video Input (Traffic_Video.mp4)"] --> CAP["cv2.VideoCapture (Frame Extraction @ 59.94 FPS)"]
+    CAP --> PRE["Preprocessing: Resize to 640x640, Device Allocation (CUDA / CPU)"]
+    PRE --> INFER["YOLO11n Object Detector (Ultralytics, conf=0.20, COCO Classes: 2, 3, 5, 7)"]
+    
+    INFER --> TRACK["ByteTrack Association (bytetrack.yaml, persist=True)"]
+    TRACK --> FILTER["Class Filter: Car, Motorcycle, Bus, Truck"]
+    
+    FILTER --> COUNT["Vehicle Counting: len(tracked_ids) & Per-Class Sums"]
+    COUNT --> CONG{"Total Vehicles >= 15?"}
+    CONG -- Yes --> HIGH["Traffic Level = HIGH"]
+    CONG -- No --> MED{"Total Vehicles >= 7?"}
+    MED -- Yes --> MEDIUM["Traffic Level = MEDIUM"]
+    MED -- No --> LOW["Traffic Level = LOW"]
+    
+    COUNT --> RISK["Risk Score Calculation: min(total / 20.0, 1.0)"]
+    RISK --> STATUS{"Risk Score >= 0.75?"}
+    STATUS -- Yes --> R_HIGH["Status: HIGH RISK"]
+    STATUS -- No --> STAT_MED{"Risk Score >= 0.40?"}
+    STAT_MED -- Yes --> R_MED["Status: MEDIUM RISK"]
+    STAT_MED -- No --> R_LOW["Status: LOW RISK"]
+    
+    HIGH & MEDIUM & LOW & R_HIGH & R_MED & R_LOW --> ANNOT["Render Bounding Boxes, IDs & Telemetry Overlay"]
+    ANNOT --> WRITE_VID["cv2.VideoWriter -> smart_traffic_output_v2.mp4"]
+    ANNOT --> WRITE_CSV["Append Frame Telemetry -> traffic_results_v2.csv"]

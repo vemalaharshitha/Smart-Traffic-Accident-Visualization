@@ -1,0 +1,12 @@
+Hyperparameter / Setting,Random Forest Classifier,Multinomial Logistic Regression
+Algorithm Package,randomForest (v4.7),nnet::multinom (v7.3)
+Formula Specification,accident_severity ~ .,accident_severity ~ .
+Number of Trees (ntree),300,N/A
+Variables per Split (mtry),3 (floor(sqrt(p))),N/A
+Splitting Criterion,Gini Impurity,Maximum Likelihood Estimation
+Out-of-Bag (OOB) Sampling,Enabled (Bootstrap 63.2%),N/A
+Optimization Algorithm,Recursive Binary Partitioning,BFGS Quasi-Newton Iterative Solver
+Convergence Criterion,Tree completion,"trace = FALSE, max iterations reached"
+Training Data Size,"16,000 samples","16,000 samples"
+Test Data Size,"4,000 samples","4,000 samples"
+Random Seed / Reproducibility,Fixed R session seed,Fixed R session seed

@@ -1,0 +1,9 @@
+Evaluation Dimension,Traditional Traffic Monitoring Systems,SMART TRAFFIC Platform (Proposed)
+Data Modality,Isolated: either loop detectors or periodic crash tally,Dual-stream: Macro historical accident data + Micro live video AI
+Surveillance Perception,Manual CCTV monitoring by operators,Automated YOLO11n detection with ByteTrack persistent ID tracking
+Vehicle Classification,Gross categorization (PCU estimates),"Fine-grained per-class breakdown (Cars, Bikes, Buses, Trucks)"
+Risk Assessment,Post-hoc retrospective police crash reports,Real-time predictive risk scoring + Multi-variable What-If simulation
+Geographic Visualization,Static GIS maps or municipal heatmaps,Interactive Leaflet OSM map with multi-attribute dynamic filtering
+Traffic Signal Control,Fixed-time pre-programmed signal schedules,Demand-responsive adaptive green-split optimization
+Machine Learning Integration,Basic linear regression or descriptive statistics,"Random Forest & Multinomial Logistic Classifiers (68.45% acc, 98.8% fatal recall)"
+User Experience,Disjointed software tools for police and engineers,"Unified executive dashboard with reactive telemetry, simulation, and export"

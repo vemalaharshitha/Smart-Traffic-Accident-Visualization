@@ -1,0 +1,35 @@
+graph TB
+    subgraph Client["Client Tier (Web Browser)"]
+        DOM["HTML5 / CSS3 / JavaScript Runtime"]
+        CSS["Custom Light Theme (Inter & Outfit Fonts, Restrained Blue Styling)"]
+        UI_TABS["6-Tab Navigation (Overview, Video, Map, Analytics, ML Studio, Explorer)"]
+        INTERACT["Reactive Controls (Sliders, City Filters, Layer Selectors, Buttons)"]
+    end
+
+    subgraph Server["Server Tier (R Shiny v1.14.0 Engine)"]
+        REACTIVE["Shiny Reactive Engine (reactiveVal, observeEvent, renderUI)"]
+        MAP_ENG["Leaflet GIS Engine (OpenStreetMap Tiles, Marker Clustering, Popups)"]
+        PLOT_ENG["Plotly & ggplot2 Engine (Dynamic Interactive SVG/WebGL Visualizations)"]
+        SIM_ENG["What-If Safety Simulator (Dynamic Formula Score & Severity Engine)"]
+        SIG_ENG["Demand-Responsive Signal Optimizer (Green Phase Adjustment Logic)"]
+        STREAM_ENG["Video Streaming Bridge (addResourcePath Static Asset Handler)"]
+    end
+
+    subgraph Storage["Data & Model Storage Tier"]
+        CSV_ACC["data/indian_roads_dataset.csv (20,000 Incident Records)"]
+        CSV_VID["outputs/traffic_results_v2.csv (901 Frame Telemetry Rows)"]
+        VID_FILE["outputs/smart_traffic_output_browser.mp4 (H.264 Video Stream)"]
+        RES_DIR["results/*.csv (Model Accuracy, Confusion Matrix, Feature Importance)"]
+    end
+
+    DOM <--> REACTIVE
+    REACTIVE --> MAP_ENG --> DOM
+    REACTIVE --> PLOT_ENG --> DOM
+    REACTIVE --> SIM_ENG --> DOM
+    REACTIVE --> SIG_ENG --> DOM
+    STREAM_ENG --> DOM
+    
+    CSV_ACC --> REACTIVE
+    CSV_VID --> REACTIVE
+    VID_FILE --> STREAM_ENG
+    RES_DIR --> REACTIVE

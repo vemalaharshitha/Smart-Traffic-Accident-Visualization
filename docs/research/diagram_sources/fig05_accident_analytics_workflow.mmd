@@ -1,0 +1,20 @@
+flowchart TD
+    SRC["Historical Indian Roads Dataset (20,000 Records)"] --> PREP["Factor Encoding & Missing Data Treatment"]
+    PREP --> EDA["Exploratory Data Analysis: City, Weather, Road Type & Causes"]
+    
+    EDA --> RISK_CORR["Risk Assessment Matrix:<br/>Fog x High Traffic Density -> 0.919 Risk"]
+    EDA --> SPATIAL["Spatial Hotspot Clustering:<br/>Chandigarh Grid (30.7°N, 76.8°E): 636 Incidents"]
+    
+    PREP --> PART["Stratified 80/20 Train/Test Partition (16,000 / 4,000)"]
+    PART --> RF_TRAIN["Random Forest Training (ntree=300, mtry=3, formula=accident_severity ~ .)"]
+    PART --> MLR_TRAIN["Multinomial Logistic Regression Training (nnet::multinom)"]
+    
+    RF_TRAIN --> RF_TEST["Evaluation on 4,000 Unseen Test Samples"]
+    MLR_TRAIN --> MLR_TEST["Evaluation on 4,000 Unseen Test Samples"]
+    
+    RF_TEST --> METRICS["Compute Metrics:<br/>Accuracy: 68.45%<br/>Fatal Recall: 98.82%, Precision: 99.83%, F1: 99.32%<br/>Minor Recall: 96.88%, Precision: 63.84%, F1: 76.96%<br/>Major Recall: 3.57%, Precision: 39.64%, F1: 6.56%"]
+    MLR_TEST --> METRICS
+    
+    RF_TRAIN --> FEAT_IMP["Feature Importance Extraction:<br/>risk_score, traffic_density, casualties, visibility, weather"]
+    
+    METRICS & FEAT_IMP & RISK_CORR & SPATIAL --> OUTPUTS["Save Results CSVs & Visualize in R Shiny Studio"]

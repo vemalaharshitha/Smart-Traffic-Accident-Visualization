@@ -1,0 +1,35 @@
+flowchart LR
+    subgraph Actors["System Actors"]
+        TMC["Traffic Management Operator<br/>(TMC Engineer)"]
+        PLANNER["Urban Mobility Planner<br/>(Municipal Authority)"]
+        RESEARCH["Road Safety Researcher<br/>(Data Scientist)"]
+    end
+
+    subgraph UseCases["Supported Operational Use Cases"]
+        UC1["Monitor Real-Time Traffic Density & Congestion"]
+        UC2["Inspect CCTV Tracking Telemetry & Vehicle Mix"]
+        UC3["Adjust Adaptive Traffic Signal Phase Timing"]
+        UC4["Explore Historical Geographic Hotspots on GIS Map"]
+        UC5["Filter Incidents by Weather, City, Road & Severity"]
+        UC6["Execute What-If Crash Risk Scenario Simulations"]
+        UC7["Evaluate Machine Learning Severity Predictions"]
+        UC8["Inspect Random Forest Feature Importance Rankings"]
+        UC9["Browse Incident Data Records & Stream CSV Export"]
+        UC10["Review Official Municipal Briefing Report"]
+    end
+
+    TMC --> UC1
+    TMC --> UC2
+    TMC --> UC3
+    TMC --> UC10
+    
+    PLANNER --> UC4
+    PLANNER --> UC5
+    PLANNER --> UC6
+    PLANNER --> UC10
+    
+    RESEARCH --> UC5
+    RESEARCH --> UC6
+    RESEARCH --> UC7
+    RESEARCH --> UC8
+    RESEARCH --> UC9
