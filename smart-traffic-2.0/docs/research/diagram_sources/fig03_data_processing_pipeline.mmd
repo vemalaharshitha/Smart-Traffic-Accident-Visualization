@@ -1,0 +1,28 @@
+flowchart LR
+    subgraph RawData["Raw Input Layer"]
+        R1["indian_roads_dataset.csv<br/>(20,000 Rows, 24 Columns)"]
+        R2["Traffic_Video.mp4<br/>(901 Frames, 59.94 FPS)"]
+    end
+
+    subgraph Cleaning["Validation & Standardization"]
+        C1["Convert Types:<br/>date -> Date<br/>time -> POSIXct<br/>categories -> Factors"]
+        C2["Range Verifications:<br/>hour ∈ [0, 23]<br/>risk_score ∈ [0, 1]<br/>casualties >= 0"]
+        C3["Missing Value Handling:<br/>festival -> Impute 'None'<br/>(0 NA remaining)"]
+        C4["Video Normalization:<br/>Letterbox 640x640<br/>BGR -> RGB Conversion"]
+    end
+
+    subgraph Transformation["Feature Engineering & Derivation"]
+        T1["Temporal Binning:<br/>hour_group (Morning/Afternoon/Evening/Night)<br/>is_peak_hour, is_weekend"]
+        T2["Composite Risk Binning:<br/>Low (<0.4), Medium (0.4-0.7), High (>=0.7)"]
+        T3["Casualty Level Categorization:<br/>None, Low (1-2), Mod (3-4), High (5+)"]
+        T4["Tracking Telemetry Extraction:<br/>total_vehicles = len(tracked_ids)<br/>risk_score = min(total/20.0, 1.0)"]
+    end
+
+    subgraph Partition["Data Partitioning & Serialization"]
+        P1["Train Set (80%, N=16,000)"]
+        P2["Test Set (20%, N=4,000)"]
+        P3["traffic_results_v2.csv (901 records)"]
+    end
+
+    R1 --> C1 --> C2 --> C3 --> T1 --> T2 --> T3 --> P1 & P2
+    R2 --> C4 --> T4 --> P3

@@ -1,0 +1,7 @@
+Stage,Operation,Input State,Applied Transformation,Output State / Verification
+P1,Format Conversion,"date (string), time (string)",as.Date() & as.POSIXct(format='%H:%M:%S'),ISO-8601 temporal objects
+P2,Categorical Encoding,"Text strings (city, weather, road_type, etc.)",Convert to R Factors with predefined levels,Properly indexed factor variables
+P3,Numerical Validation,"Ranges: hour, lanes, casualties, risk_score",Logical constraint verification (e.g. 0<=hour<=23),0 out-of-bound records detected
+P4,Missing Value Treatment,festival column (99.4% NA),Impute NA with 'None' / create binary indicator,Clean factor column with no NA entries
+P5,Feature Engineering,Raw temporal and metric columns,"Extract hour_group, weekend_label, peak_label, risk_level",Enriched dataset with 7 new analytical columns
+P6,Dataset Partitioning,"20,000 preprocessed rows",Stratified 80/20 train/test split,"16,000 train samples (80%), 4,000 test samples (20%)"

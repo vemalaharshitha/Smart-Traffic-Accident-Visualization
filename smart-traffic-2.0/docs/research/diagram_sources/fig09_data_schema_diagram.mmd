@@ -1,0 +1,51 @@
+erDiagram
+    INDIAN_ROADS_DATASET {
+        int accident_id PK "Unique Incident Identifier (0-19,999)"
+        string city "Metropolitan Municipality (8 Indian Cities)"
+        string state "State / Union Territory Jurisdiction"
+        float latitude "Geographic Latitude (12.80 - 30.80° N)"
+        float longitude "Geographic Longitude (72.82 - 88.42° E)"
+        date date "Calendar Date of Occurrence"
+        time time "Timestamp of Incident"
+        int hour "Hour of Occurrence (0 to 23)"
+        string day_of_week "Day Name (Monday to Sunday)"
+        int is_weekend "Weekend Indicator (0=Weekday, 1=Weekend)"
+        string road_type "Corridor Type (urban, rural, highway)"
+        int lanes "Vehicular Lanes Count (1 to 6)"
+        int traffic_signal "Signal Presence (0=No, 1=Yes)"
+        string weather "Atmospheric State (clear, rain, fog)"
+        string visibility "Visibility Rating (low, medium, high)"
+        float temperature "Ambient Temperature in °C (10.0 - 45.0)"
+        string traffic_density "Corridor Flow Density (low, medium, high)"
+        string cause "Reported Cause (distraction, overspeeding, etc.)"
+        string accident_severity "Target Variable (minor, major, fatal)"
+        int vehicles_involved "Colliding Vehicles Count (1 to 6)"
+        int casualties "Total Injury & Fatality Count (0 to 8)"
+        int is_peak_hour "Rush Hour Flag (0=Off-Peak, 1=Peak)"
+        string festival "Festive Holiday Name or None"
+        float risk_score "Domain Composite Risk Index (0.10 - 1.00)"
+    }
+
+    TRAFFIC_RESULTS_V2 {
+        int frame PK "Video Frame Sequence Number (1 to 901)"
+        float time_seconds "Elapsed Video Surveillance Time (s)"
+        int cars "Concurrent Cars Detected Count"
+        int motorcycles "Concurrent Motorcycles Detected Count"
+        int buses "Concurrent Buses Detected Count"
+        int trucks "Concurrent Trucks Detected Count"
+        int total_vehicles "Sum of Active Tracked Vehicles"
+        string traffic_level "Flow State (HIGH, MEDIUM, LOW)"
+        float risk_score "Heuristic Congestion Risk (min(total/20.0, 1.0))"
+    }
+
+    MODEL_EVALUATION_RESULTS {
+        string model_name PK "Random Forest / Multinomial Logistic"
+        float test_accuracy "Overall Classification Accuracy (68.45%)"
+        float fatal_f1 "Fatal Class F1 Score (99.32%)"
+        float minor_f1 "Minor Class F1 Score (76.96%)"
+        float major_f1 "Major Class F1 Score (6.56%)"
+        float oob_error "Out of Bag Error Rate (31.22%)"
+    }
+
+    INDIAN_ROADS_DATASET ||--o{ MODEL_EVALUATION_RESULTS : "evaluates"
+    INDIAN_ROADS_DATASET }|..|{ TRAFFIC_RESULTS_V2 : "correlates in dashboard"

@@ -14,3 +14,10 @@ __pycache__/
 
 # Files exceeding GitHub 100MB file limit
 smart-traffic-2.0/outputs/smart_traffic_output_v2.mp4
+smart-traffic-2.0/outputs/smart_traffic_output_hyper.mp4
+
+# Nested duplicate folder / git repo
+Smart Traffic/
+
+# VS Code environment and settings
+.vscode/

@@ -1,0 +1,25 @@
+Feature Name,Data Type,Range / Distinct Values,Role in System,Description
+accident_id,Integer,"0 to 19,999",Identifier,Unique system identifier for each accident record
+city,Categorical,"8 cities (Chandigarh, Chennai, etc.)",Spatial Feature,Metropolitan municipality where crash occurred
+state,Categorical,"7 states/UTs (Punjab/UT, TN, WB, etc.)",Spatial Feature,State or Union Territory jurisdiction
+latitude,Float,12.800172 to 30.799960,GIS Coordinate,Geographic latitude for spatial mapping & clustering
+longitude,Float,72.820000 to 88.420000,GIS Coordinate,Geographic longitude for spatial mapping & clustering
+date,Date,YYYY-MM-DD,Temporal Feature,Calendar date of accident occurrence
+time,Time,HH:MM:SS,Temporal Feature,Exact timestamp of accident occurrence
+hour,Integer,0 to 23,Temporal Feature,Hour of the day in 24-hour military format
+day_of_week,Categorical,Monday through Sunday,Temporal Feature,Day name of occurrence
+is_weekend,Binary (0/1),"0: Weekday, 1: Weekend",Engineered Feature,Indicator flag for Saturday and Sunday
+road_type,Categorical,"urban (6745), rural (6639), highway (6616)",Infrastructure,Classification of the roadway layout
+lanes,Integer,1 to 6,Infrastructure,Number of active vehicular lanes on corridor
+traffic_signal,Binary (0/1),"0: Absent, 1: Present",Infrastructure,Presence of active automated traffic signal
+weather,Categorical,"clear (6690), rain (6677), fog (6633)",Environmental,Atmospheric weather state at time of incident
+visibility,Categorical,"low, medium, high",Environmental,Reported visual line-of-sight range
+temperature,Float,10.0°C to 45.0°C,Environmental,Ambient outdoor temperature in degrees Celsius
+traffic_density,Categorical,"low (7067), high (7034), medium (5899)",Traffic State,Pre-crash density classification on corridor
+cause,Categorical,"distraction, overspeeding, weather, drunk driving, poor road",Behavioral,Primary police-reported contributory cause
+accident_severity,Categorical (Target),"minor (11025), major (5988), fatal (2987)",Ground Truth Target,Categorical crash impact severity
+vehicles_involved,Integer,1 to 6,Collision Metric,Total number of vehicles involved in collision
+casualties,Integer,0 to 8,Impact Metric,Total casualty count (injuries + fatalities)
+is_peak_hour,Binary (0/1),"0: Off-peak, 1: Peak (8-11 AM, 5-8 PM)",Engineered Feature,Indicator for high-volume rush hours
+festival,Categorical,"Diwali, Holi, Eid, New Year, None",Calendar Feature,Public festive holiday flag
+risk_score,Float,0.10 to 1.00,Composite Score,Domain-weighted composite road safety risk score

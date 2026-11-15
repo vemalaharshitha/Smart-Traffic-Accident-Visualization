@@ -1,0 +1,14 @@
+Component,Specification,Purpose / Functional Assignment
+Operating System,Microsoft Windows 11 / Windows Server 64-bit,Execution and hosting host OS
+Primary Analytics Engine,R Version 4.5.1 (2025-06-13),"Statistical analysis, modeling, data wrangling"
+Interactive Web Framework,R Shiny v1.14.0,Reactive enterprise dashboard UI & server engine
+Geospatial GIS Engine,Leaflet for R v2.2.3,OpenStreetMap interactive tile renderer & clusterer
+Data Visualization Engine,Plotly v4.12.1 & ggplot2 v4.0.3,"Interactive charts, histograms, heatmaps"
+Tabular Data Processing,dplyr v1.2.1 & tidyverse,"Data manipulation, aggregation, and pipelines"
+Machine Learning Library (RF),randomForest v4.7-1.2,Random forest multi-class ensemble classification
+Machine Learning Library (MLR),nnet v7.3-20,Multinomial logistic regression baseline
+Computer Vision Runtime,Python 3.13.14 64-bit,Deep learning video inference pipeline
+YOLO Neural Network,Ultralytics YOLO11n (v8.4.132),Real-time object detection model
+Vision Processing Library,OpenCV (opencv-python v5.0.0.93),"Video I/O, frame resizing, box rendering"
+Deep Learning Framework,PyTorch v2.13.0 + TorchVision v0.28.0,Tensor execution & CUDA / CPU inference
+Multi-Object Tracking,ByteTrack Algorithm (lap v0.5.13),Tracklet data association across frames

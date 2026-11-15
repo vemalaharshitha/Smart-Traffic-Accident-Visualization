@@ -1,0 +1,31 @@
+flowchart TD
+    Start([Project Initiation]) --> Ingest["Ingest Historical Dataset & Video Feed"]
+    Ingest --> CleanTabular["Preprocess Tabular Data (Check Constraints & NAs)"]
+    Ingest --> ReadVideo["Decode Surveillance Video (OpenCV Frame Extraction)"]
+    
+    CleanTabular --> FeatureEng["Engineered Features: Temporal & Risk Scoring"]
+    FeatureEng --> SplitData["Stratified Train/Test Partition (80% / 20%)"]
+    
+    SplitData --> TrainRF["Train Random Forest Classifier (ntree=300, mtry=3)"]
+    SplitData --> TrainMLR["Train Multinomial Logistic Regression"]
+    
+    TrainRF --> EvalModels["Model Evaluation (Accuracy: 68.45%, Fatal F1: 99.32%)"]
+    TrainMLR --> EvalModels
+    
+    ReadVideo --> YOLOTrack["YOLO11n Detection + ByteTrack Multi-Object Tracking"]
+    YOLOTrack --> ExtractCounts["Per-Frame Vehicle Counting (Cars, Bikes, Trucks)"]
+    ExtractCounts --> CalcCongestion["Congestion Classification & Dynamic Risk Scoring"]
+    CalcCongestion --> ExportVideoData["Export Video Results (CSV & Annotated MP4)"]
+    
+    EvalModels --> ShinyApp["Load into R Shiny Interactive Architecture"]
+    FeatureEng --> ShinyApp
+    ExportVideoData --> ShinyApp
+    
+    ShinyApp --> UserInteract{"User Role Interaction"}
+    UserInteract -->|Operator| MonLive["Live Corridor Surveillance & Signal Timing"]
+    UserInteract -->|Planner| SimRisk["What-If Safety Simulation & Hotspot Analysis"]
+    UserInteract -->|Analyst| ExportData["Data Explorer & Filtered Incident Export"]
+    
+    MonLive --> EndNode([Operational Safety Action])
+    SimRisk --> EndNode
+    ExportData --> EndNode

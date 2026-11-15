@@ -8,4 +8,5 @@ if (!file.exists(dashboard_file)) {
   dashboard_file <- file.path("C:/Users/Harshitha/OneDrive/Documents/Smart Traffic/smart-traffic-2.0/dashboard/app.R")
 }
 
-source(dashboard_file, local = FALSE)
+res <- source(dashboard_file, local = FALSE)
+res$value

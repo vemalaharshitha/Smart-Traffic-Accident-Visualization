@@ -1,0 +1,13 @@
+Attribute,Value,Description / Notes
+Dataset Name,Indian Roads Accident Dataset,Historical record of road accidents across Indian metropolitan regions
+Total Records,"20,000",Complete individual accident incidents
+Total Features,24,"Categorical, numerical, spatial, and temporal attributes"
+Geographic Coverage,8 Cities / 7 States,"Chandigarh, Chennai, Kolkata, Pune, Mumbai, Bangalore, Delhi, Hyderabad"
+Latitude Range,12.8002° N to 30.8000° N,Spans southern to northern Indian urban zones
+Longitude Range,72.8200° E to 88.4200° E,Spans western to eastern metropolitan corridors
+Temporal Span,2018 - 2023,Multi-year historical incident tracking
+Target Variable,accident_severity,"Multi-class: minor, major, fatal"
+Class Distribution (Minor),"11,025 (55.13%)",Non-incapacitating injuries / property damage
+Class Distribution (Major),"5,988 (29.94%)",Severe injuries requiring hospitalization
+Class Distribution (Fatal),"2,987 (14.93%)",Incidents resulting in one or more fatalities
+Missing Values,"festival (19,885 missing / 99.4%)",Non-festival days; 0 missing values across all other 23 columns

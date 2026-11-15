@@ -1,0 +1,22 @@
+Metric / Parameter,Value,Unit / Context
+Source Video Asset,Traffic_Video.mp4,Real urban multi-lane CCTV corridor feed
+Video Resolution,1920 × 1080,Pixels (Full High Definition)
+Native Frame Rate,59.94,Frames Per Second (FPS)
+Total Frames Processed,901,Continuous video frames
+Surveillance Duration,15.03,Seconds of real-world surveillance
+Object Detection Architecture,YOLO11n (Ultralytics v8.4),"Nano model, 2.6M parameters"
+Inference Input Resolution,640 × 640,Pixels
+Confidence Threshold,0.20,Detection cutoff for vehicle candidates
+Multi-Object Tracker,ByteTrack (bytetrack.yaml),Associates high & low score detection boxes
+Target Vehicle Classes,4 COCO Classes,"Car (ID 2), Motorcycle (ID 3), Bus (ID 5), Truck (ID 7)"
+Max Concurrent Vehicles,23,Vehicles tracked in a single frame (Frame 1)
+Min Concurrent Vehicles,17,Vehicles tracked in a single frame (Frame 13)
+Mean Concurrent Vehicles,20.12,Vehicles per frame average
+Cars Observed (Mean / Frame),6.14,30.5% of active corridor mix
+Motorcycles Observed (Mean / Frame),11.62,57.8% of active corridor mix (Dominant)
+Trucks Observed (Mean / Frame),2.36,11.7% of active corridor mix
+Buses Observed (Mean / Frame),0.00,0.0% detected during 15s window
+Congestion State Distribution,100% HIGH,"All 901 frames total_vehicles >= 15 (Max=23, Min=17)"
+Mean Heuristic Risk Score,0.985,"Scale 0.0 - 1.0 (min(total / 20.0, 1.0))"
+Exported Video File,smart_traffic_output_v2.mp4,114.5 MB annotated video with tracking boxes
+Browser-Optimized Video,smart_traffic_output_browser.mp4,33.1 MB H.264/AAC for HTML5 web streaming

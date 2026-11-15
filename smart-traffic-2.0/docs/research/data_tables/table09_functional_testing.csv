@@ -1,0 +1,13 @@
+Test ID,Functional Module,Test Procedure,Expected Result,Actual Result,Status
+TC-01,Root Application Launch,Execute shiny::runApp('.') from root directory,Loads root app.R and sources dashboard/app.R without error,Dashboard boots on allocated port with operational status,PASS
+TC-02,Historical Dataset Ingestion,Read indian_roads_dataset.csv into memory,"Parses 20,000 records with 24 columns","20,000 records ingested; factor levels mapped properly",PASS
+TC-03,Missing File Graceful Fallback,Simulate missing secondary video CSV,Dashboard initializes with empty placeholder and does not crash,Path resolution checks file.exists(); runs gracefully,PASS
+TC-04,Geographic Map Interactive Filter,Apply city filter (e.g. 'Chandigarh') on Leaflet map,"Map centers on 30.7°N, 76.8°E with 2,577 markers","Leaflet updates marker cluster; record counter reflects 2,577",PASS
+TC-05,Severity Filter Interaction,Toggle 'Fatal' severity checkbox,"Map displays only 2,987 fatal incidents in red markers",Filtered points render with fatal casualty tooltips,PASS
+TC-06,Video Telemetry Playback,Select video frame slider (Frame 1 to 901),Live telemetry cards update vehicle counts and risk score,Telemetry cards display exact frame counts and traffic level,PASS
+TC-07,What-If Crash Risk Simulator,"Adjust weather to 'Fog', density to 'High', signal to 'No'",Simulator gauge recalculates predicted risk and severity,HUD displays high risk (>0.90) and fatal alert status,PASS
+TC-08,Traffic Signal Timing Optimizer,Simulate surge in concurrent vehicle count (total > 20),Green split expands dynamically to mitigate queue build-up,Signal UI adjusts green phase to 60s and amber to 4s,PASS
+TC-09,YOLO11n Vehicle Inference,Run smart_traffic_v2.py on Traffic_Video.mp4,Produces annotated bounding boxes and traffic_results_v2.csv,901 frames processed; outputs valid CSV and MP4 files,PASS
+TC-10,ML Model Metrics Rendering,Navigate to ML & Risk Intelligence tab,"Displays 68.45% accuracy, confusion matrix, feature importance",Plots and tables render from verified results/*.csv files,PASS
+TC-11,Data Explorer Filtering & Pagination,Select dataset and set row count to 50,Table displays first 50 rows with formatted badges,Renders cyber-table with proper CSS badges and pagination,PASS
+TC-12,Official City Briefing Modal,Click 'Official City Briefing' action button,Displays modal dialog summarizing key accident statistics,Modal dialog appears with city statistics and close button,PASS

@@ -1,4 +1,31 @@
-.Rproj.user
+# R session and cache files
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
+*.Rhistory
+*.RData
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Temporary files & OS caches
+*.tmp
+*.log
+*.swp
+*~
+Thumbs.db
+.DS_Store
+
+# Backups and intermediate files
+*_backup_*
+*backup_before*
+*.bak
+dark_theme_snippet.txt
+outputs/backup_before_fix/

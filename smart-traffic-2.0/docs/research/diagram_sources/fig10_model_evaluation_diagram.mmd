@@ -1,0 +1,24 @@
+flowchart TD
+    subgraph ConfusionMatrix["Random Forest Test Confusion Matrix (N = 4,000)"]
+        CM1["Actual Minor: 2,108 Minor (96.88%) | 67 Major | 1 Fatal"]
+        CM2["Actual Major: 1,187 Minor | 44 Major (3.57%) | 0 Fatal"]
+        CM3["Actual Fatal: 7 Minor | 0 Major | 586 Fatal (98.82%)"]
+    end
+
+    subgraph MetricsSummary["Performance Evaluation Metrics"]
+        M1["Overall Accuracy: 68.45% (2,738 / 4,000 Correct)"]
+        M2["Fatal: Precision = 99.83% | Recall = 98.82% | F1 = 99.32%"]
+        M3["Minor: Precision = 63.84% | Recall = 96.88% | F1 = 76.96%"]
+        M4["Major: Precision = 39.64% | Recall = 3.57% | F1 = 6.56%"]
+    end
+
+    subgraph FeatureImportance["Key Predictive Features (MeanDecreaseGini)"]
+        F1["1. risk_score: 1,541.47"]
+        F2["2. temperature: 1,013.02"]
+        F3["3. hour: 920.08"]
+        F4["4. casualties: 694.09"]
+        F5["5. traffic_density: 523.36"]
+    end
+
+    ConfusionMatrix --> MetricsSummary
+    ConfusionMatrix --> FeatureImportance
